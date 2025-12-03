@@ -18,6 +18,9 @@
         <service id="bitbag.imoje_plugin.action.notify" class="BitBag\SyliusImojePlugin\Action\NotifyAction">
             <argument type="service" id="request_stack"/>
             <argument type="service" id="bitbag.imoje_plugin.resolver.signature_resolver"/>
+            <argument type="service" id="sylius.factory.payment"/>
+            <argument type="service" id="doctrine.orm.entity_manager"/>
+            <argument type="service" id="sylius.repository.order"/>
             <tag name="payum.action" factory="imoje" alias="payum.action.notify"/>
         </service>
 
