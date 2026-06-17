@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\OrderPay\Provider;
+namespace BitBag\SyliusIngPayPlugin\OrderPay\Provider;
 
 use Sylius\Bundle\PaymentBundle\Provider\HttpResponseProviderInterface;
 use Sylius\Bundle\ResourceBundle\Controller\RequestConfiguration;

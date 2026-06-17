@@ -1,32 +1,32 @@
 services:
-    bitbag.sylius.command_handlers.imoje_paywall.capture:
-        class: BitBag\SyliusImojePlugin\CommandHandler\CapturePaymentRequestHandler
+    bitbag.sylius.command_handlers.ing_pay_paywall.capture:
+        class: BitBag\SyliusIngPayPlugin\CommandHandler\CapturePaymentRequestHandler
         arguments:
             - '@sylius.provider.payment_request'
             - '@sylius_abstraction.state_machine'
-            - '@bitbag.imoje_plugin.resolver.signature_resolver'
+            - '@bitbag.ing_pay_plugin.resolver.signature_resolver'
             - '@sylius_shop.provider.order_pay.payment_request_pay_url'
         tags:
             - name: messenger.message_handler
               bus: sylius.payment_request.command_bus
     
-    bitbag.sylius.command_handlers.imoje_paywall.capture_end:
-        class: BitBag\SyliusImojePlugin\CommandHandler\CaptureEndPaymentRequestHandler
+    bitbag.sylius.command_handlers.ing_pay_paywall.capture_end:
+        class: BitBag\SyliusIngPayPlugin\CommandHandler\CaptureEndPaymentRequestHandler
         arguments:
             - '@sylius.provider.payment_request'
             - '@sylius_abstraction.state_machine'
-            - '@bitbag.sylius_imoje_plugin.processor.payment_transition'
+            - '@bitbag.sylius_ing_pay_plugin.processor.payment_transition'
         tags:
             -   name: messenger.message_handler
                 bus: sylius.payment_request.command_bus
     
-    bitbag.sylius.command_handlers.imoje_paywall.status:
-        class: BitBag\SyliusImojePlugin\CommandHandler\StatusPaymentRequestHandler
+    bitbag.sylius.command_handlers.ing_pay_paywall.status:
+        class: BitBag\SyliusIngPayPlugin\CommandHandler\StatusPaymentRequestHandler
         arguments:
             - '@sylius.provider.payment_request'
             - '@sylius_abstraction.state_machine'
-            - '@bitbag.sylius_imoje_plugin.processor.payment_transition'
+            - '@bitbag.sylius_ing_pay_plugin.processor.payment_transition'
         tags:
             -   name: messenger.message_handler
                 bus: sylius.payment_request.command_bus
-                handles: BitBag\SyliusImojePlugin\Command\StatusPaymentRequest
+                handles: BitBag\SyliusIngPayPlugin\Command\StatusPaymentRequest

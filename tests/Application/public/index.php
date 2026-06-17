@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Tests\BitBag\SyliusImojePlugin\Application\Kernel;
+use Tests\BitBag\SyliusIngPayPlugin\Application\Kernel;
 use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

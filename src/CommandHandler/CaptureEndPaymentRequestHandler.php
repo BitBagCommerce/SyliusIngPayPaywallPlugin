@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\CommandHandler;
+namespace BitBag\SyliusIngPayPlugin\CommandHandler;
 
-use BitBag\SyliusImojePlugin\Command\CaptureEndPaymentRequest;
-use BitBag\SyliusImojePlugin\Processor\PaymentTransitionProcessorInterface;
+use BitBag\SyliusIngPayPlugin\Command\CaptureEndPaymentRequest;
+use BitBag\SyliusIngPayPlugin\Processor\PaymentTransitionProcessorInterface;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Bundle\PaymentBundle\Provider\PaymentRequestProviderInterface;
 use Sylius\Component\Payment\Model\PaymentRequestInterface;

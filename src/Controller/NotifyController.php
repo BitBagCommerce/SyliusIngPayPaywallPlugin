@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Controller;
+namespace BitBag\SyliusIngPayPlugin\Controller;
 
-use BitBag\SyliusImojePlugin\Resolver\SignatureResolverInterface;
+use BitBag\SyliusIngPayPlugin\Resolver\SignatureResolverInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Sylius\Component\Core\Model\PaymentInterface;
 use Sylius\Component\Core\Repository\OrderRepositoryInterface;
@@ -31,7 +31,7 @@ final readonly class NotifyController
     ) {
     }
 
-    public function verifyImojeNotification(Request $request): Response
+    public function verifyIngPayNotification(Request $request): Response
     {
         $content = $request->getContent();
         if ('' === $content) {
@@ -81,13 +81,13 @@ final readonly class NotifyController
             return new Response('Signature verification failed', Response::HTTP_FORBIDDEN);
         }
 
-        $imojePaymentStatus = (string) $data['payment']['status'];
-        $payment->setDetails(['status' => $imojePaymentStatus]);
+        $ingPayPaymentStatus = (string) $data['payment']['status'];
+        $payment->setDetails(['status' => $ingPayPaymentStatus]);
         $this->entityManager->persist($payment);
         $this->entityManager->flush();
 
         return new JsonResponse([
-            'status' => $imojePaymentStatus,
+            'status' => $ingPayPaymentStatus,
         ]);
     }
 }

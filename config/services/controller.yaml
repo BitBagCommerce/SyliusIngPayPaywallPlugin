@@ -2,10 +2,10 @@ services:
     _defaults:
         public: true
 
-    bitbag.sylius_imoje_plugin.controller.notify_controller:
-        class: BitBag\SyliusImojePlugin\Controller\NotifyController
+    bitbag.sylius_ing_pay_plugin.controller.notify_controller:
+        class: BitBag\SyliusIngPayPlugin\Controller\NotifyController
         arguments:
             - '@sylius.repository.order'
             - '@sylius.repository.payment'
             - '@doctrine.orm.entity_manager'
-            - '@bitbag.imoje_plugin.resolver.signature_resolver'
+            - '@bitbag.ing_pay_plugin.resolver.signature_resolver'

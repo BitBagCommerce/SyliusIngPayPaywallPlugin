@@ -9,7 +9,7 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Processor;
+namespace BitBag\SyliusIngPayPlugin\Processor;
 
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Component\Payment\Model\PaymentInterface;

@@ -1,5 +1,5 @@
 bitbag:
-    imoje_plugin:
+    ing_pay_plugin:
         configuration:
             production: Production
             sandbox: Sandbox
@@ -8,4 +8,4 @@ bitbag:
             service_key: Service key
             authorization_token: Authorization token
             environment: Envrionment
-        paywall: Imoje (Paywall)
+        paywall: ING Pay (Paywall)

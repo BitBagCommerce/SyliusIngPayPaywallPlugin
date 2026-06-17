@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tests\BitBag\SyliusImojePlugin\Unit\CommandHandler;
+namespace Tests\BitBag\SyliusIngPayPlugin\Unit\CommandHandler;
 
-use BitBag\SyliusImojePlugin\Command\CapturePaymentRequest;
-use BitBag\SyliusImojePlugin\CommandHandler\CapturePaymentRequestHandler;
-use BitBag\SyliusImojePlugin\Enum\ImojeEnvironment;
-use BitBag\SyliusImojePlugin\Resolver\SignatureResolverInterface;
+use BitBag\SyliusIngPayPlugin\Command\CapturePaymentRequest;
+use BitBag\SyliusIngPayPlugin\CommandHandler\CapturePaymentRequestHandler;
+use BitBag\SyliusIngPayPlugin\Enum\IngPayEnvironment;
+use BitBag\SyliusIngPayPlugin\Resolver\SignatureResolverInterface;
 use PHPUnit\Framework\TestCase;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Bundle\CoreBundle\OrderPay\Provider\UrlProviderInterface;
@@ -63,7 +63,7 @@ final class CapturePaymentRequestHandlerTest extends TestCase
 
         $paymentMethod->method('getGatewayConfig')->willReturn($gatewayConfig);
         $gatewayConfig->method('getConfig')->willReturn([
-            'environment' => ImojeEnvironment::SANDBOX_ENVIRONMENT,
+            'environment' => IngPayEnvironment::SANDBOX_ENVIRONMENT,
             'service_key' => 'test_key',
             'service_id' => 'test_service',
             'merchant_id' => 'test_merchant',
@@ -96,7 +96,7 @@ final class CapturePaymentRequestHandlerTest extends TestCase
         $paymentRequest->expects(self::once())
             ->method('setResponseData')
             ->with([
-                'url' => ImojeEnvironment::SANDBOX_URL->value,
+                'url' => IngPayEnvironment::SANDBOX_URL->value,
                 'orderData' => [
                     'serviceId' => 'test_service',
                     'merchantId' => 'test_merchant',
