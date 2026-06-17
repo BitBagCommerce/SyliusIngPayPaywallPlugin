@@ -1,5 +1,5 @@
 
-# ING Pay Plugin for Sylius
+# ING Pay Paywall Plugin for Sylius
 ----
 
 We want to impact many unique eCommerce projects and build our brand recognition worldwide, so we are heavily involved in creating open-source solutions, especially for Sylius. We have already created over **35 extensions, which have been downloaded almost 2 million times.**
