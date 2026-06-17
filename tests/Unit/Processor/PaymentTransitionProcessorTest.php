@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\BitBag\SyliusImojePlugin\Unit\Processor;
+namespace Tests\BitBag\SyliusIngPayPlugin\Unit\Processor;
 
-use BitBag\SyliusImojePlugin\Processor\PaymentTransitionProcessor;
-use BitBag\SyliusImojePlugin\Processor\PaymentTransitionProcessorInterface;
+use BitBag\SyliusIngPayPlugin\Processor\PaymentTransitionProcessor;
+use BitBag\SyliusIngPayPlugin\Processor\PaymentTransitionProcessorInterface;
 use PHPUnit\Framework\TestCase;
 use Sylius\Component\Payment\Model\PaymentInterface;
 use Sylius\Component\Payment\Model\PaymentRequestInterface;

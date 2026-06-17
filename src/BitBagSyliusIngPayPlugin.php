@@ -9,12 +9,12 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin;
+namespace BitBag\SyliusIngPayPlugin;
 
 use Sylius\Bundle\CoreBundle\Application\SyliusPluginTrait;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class BitBagSyliusImojePlugin extends Bundle
+final class BitBagSyliusIngPayPlugin extends Bundle
 {
     use SyliusPluginTrait;
 

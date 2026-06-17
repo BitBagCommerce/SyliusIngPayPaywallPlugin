@@ -1,7 +1,7 @@
 {
-    "name": "bitbag/imoje-paywall-plugin",
+    "name": "bitbag/ing-pay-paywall-plugin",
     "type": "sylius-plugin",
-    "description": "Imoje plugin for Sylius.",
+    "description": "ING Pay plugin for Sylius.",
     "keywords": [
         "sylius",
         "sylius-plugin"
@@ -57,12 +57,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BitBag\\SyliusImojePlugin\\": "src/"
+            "BitBag\\SyliusIngPayPlugin\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\BitBag\\SyliusImojePlugin\\": [
+            "Tests\\BitBag\\SyliusIngPayPlugin\\": [
                 "tests/",
                 "tests/Application/src"
             ]

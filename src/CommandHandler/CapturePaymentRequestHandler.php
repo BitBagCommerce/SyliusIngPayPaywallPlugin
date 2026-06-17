@@ -9,11 +9,11 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\CommandHandler;
+namespace BitBag\SyliusIngPayPlugin\CommandHandler;
 
-use BitBag\SyliusImojePlugin\Command\CapturePaymentRequest;
-use BitBag\SyliusImojePlugin\Enum\ImojeEnvironment;
-use BitBag\SyliusImojePlugin\Resolver\SignatureResolverInterface;
+use BitBag\SyliusIngPayPlugin\Command\CapturePaymentRequest;
+use BitBag\SyliusIngPayPlugin\Enum\IngPayEnvironment;
+use BitBag\SyliusIngPayPlugin\Resolver\SignatureResolverInterface;
 use Sylius\Abstraction\StateMachine\StateMachineInterface;
 use Sylius\Bundle\CoreBundle\OrderPay\Provider\UrlProviderInterface;
 use Sylius\Bundle\PaymentBundle\Provider\PaymentRequestProviderInterface;
@@ -99,6 +99,6 @@ final readonly class CapturePaymentRequestHandler
 
     private function getPaymentUrl(string $environment): string
     {
-        return $environment === ImojeEnvironment::PRODUCTION_ENVIRONMENT->value ? ImojeEnvironment::PRODUCTION_URL->value : ImojeEnvironment::SANDBOX_URL->value;
+        return $environment === IngPayEnvironment::PRODUCTION_ENVIRONMENT->value ? IngPayEnvironment::PRODUCTION_URL->value : IngPayEnvironment::SANDBOX_URL->value;
     }
 }

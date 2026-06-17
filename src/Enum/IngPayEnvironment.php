@@ -9,9 +9,9 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Enum;
+namespace BitBag\SyliusIngPayPlugin\Enum;
 
-enum ImojeEnvironment: string
+enum IngPayEnvironment: string
 {
     case PRODUCTION_ENVIRONMENT = 'production';
     case SANDBOX_ENVIRONMENT = 'sandbox';

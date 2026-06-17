@@ -1,18 +1,18 @@
 sylius_twig_hooks:
     hooks:
-        'sylius_admin.payment_method.create.content.form.sections.gateway_configuration.imoje_paywall':
+        'sylius_admin.payment_method.create.content.form.sections.gateway_configuration.ing_pay_paywall':
             environment:
-                template: '@BitBagSyliusImojePlugin/admin/payment_method/form/environment.html.twig'
+                template: '@BitBagSyliusIngPayPlugin/admin/payment_method/form/environment.html.twig'
                 priority: 400
             merchant_id:
-                template: '@BitBagSyliusImojePlugin/admin/payment_method/form/merchant_id.html.twig'
+                template: '@BitBagSyliusIngPayPlugin/admin/payment_method/form/merchant_id.html.twig'
                 priority: 300
             service_id:
-                template: '@BitBagSyliusImojePlugin/admin/payment_method/form/service_id.html.twig'
+                template: '@BitBagSyliusIngPayPlugin/admin/payment_method/form/service_id.html.twig'
                 priority: 200
             service_key:
-                template: '@BitBagSyliusImojePlugin/admin/payment_method/form/service_key.html.twig'
+                template: '@BitBagSyliusIngPayPlugin/admin/payment_method/form/service_key.html.twig'
                 priority: 100
             authorization_token:
-                template: '@BitBagSyliusImojePlugin/admin/payment_method/form/authorization_token.html.twig'
+                template: '@BitBagSyliusIngPayPlugin/admin/payment_method/form/authorization_token.html.twig'
                 priority: 0

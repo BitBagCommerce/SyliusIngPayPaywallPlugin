@@ -1,5 +1,5 @@
 bitbag:
-    imoje_plugin:
+    ing_pay_plugin:
         configuration:
             merchant_id:
                 not_blank: Please enter a merchant ID.

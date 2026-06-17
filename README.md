@@ -57,7 +57,7 @@ We have a 70-person team of experts: business analysts and consultants, eCommerc
 
 # Installation
 
-The installation process for the Imoje Paywall Plugin can be found [here](doc/installation.md).
+The installation process for the ING Pay Paywall Plugin can be found [here](doc/installation.md).
 
 
 ## Requirements:
@@ -73,11 +73,11 @@ We work on stable, supported and up-to-date versions of packages. We recommend y
 
 # Usage
 
-This plugin allows you to use the payment solution delivered by Imoje.
+This plugin allows you to use the payment solution delivered by ING Pay.
 
 # Configuration
 
-The configuration process for the Imoje Paywall Plugin can be found [here](doc/configuration.md).
+The configuration process for the ING Pay Paywall Plugin can be found [here](doc/configuration.md).
 
 # Functionalities
 

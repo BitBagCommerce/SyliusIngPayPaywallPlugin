@@ -1,5 +1,5 @@
-bitbag_sylius_imoje_payment_notify:
-    path: /payment/imoje/notify
+bitbag_sylius_ing_pay_payment_notify:
+    path: /payment/ing_pay/notify
     methods: [POST]
     defaults:
-        _controller: bitbag.sylius_imoje_plugin.controller.notify_controller::verifyImojeNotification
+        _controller: bitbag.sylius_ing_pay_plugin.controller.notify_controller::verifyIngPayNotification

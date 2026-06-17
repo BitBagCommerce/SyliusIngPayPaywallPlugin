@@ -9,10 +9,10 @@
 
 declare(strict_types=1);
 
-namespace Tests\BitBag\SyliusImojePlugin\Unit\Resolver;
+namespace Tests\BitBag\SyliusIngPayPlugin\Unit\Resolver;
 
-use BitBag\SyliusImojePlugin\Enum\ImojeEnvironment;
-use BitBag\SyliusImojePlugin\Resolver\SignatureResolver;
+use BitBag\SyliusIngPayPlugin\Enum\IngPayEnvironment;
+use BitBag\SyliusIngPayPlugin\Resolver\SignatureResolver;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\HeaderBag;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,7 +39,7 @@ final class SignatureResolverTest extends TestCase
         ];
         $serviceKey = 'adasvcx3412';
         $expectedDataString = 'field1=value1&field2=value2';
-        $expectedHash = hash(ImojeEnvironment::HASHING_ALGORITHM->value, $expectedDataString . $serviceKey) . ';' . ImojeEnvironment::HASHING_ALGORITHM->value;
+        $expectedHash = hash(IngPayEnvironment::HASHING_ALGORITHM->value, $expectedDataString . $serviceKey) . ';' . IngPayEnvironment::HASHING_ALGORITHM->value;
 
         $this->assertSame($expectedHash, $this->signatureResolver->createSignature($fields, $serviceKey));
     }
@@ -48,7 +48,7 @@ final class SignatureResolverTest extends TestCase
     {
         $fields = [];
         $serviceKey = 'adasvcx3412';
-        $expectedHash = hash(ImojeEnvironment::HASHING_ALGORITHM->value, $serviceKey) . ';' . ImojeEnvironment::HASHING_ALGORITHM->value;
+        $expectedHash = hash(IngPayEnvironment::HASHING_ALGORITHM->value, $serviceKey) . ';' . IngPayEnvironment::HASHING_ALGORITHM->value;
 
         $this->assertSame($expectedHash, $this->signatureResolver->createSignature($fields, $serviceKey));
     }
@@ -61,7 +61,7 @@ final class SignatureResolverTest extends TestCase
         ];
         $serviceKey = '';
         $expectedDataString = 'field1=value1&field2=value2';
-        $expectedHash = hash(ImojeEnvironment::HASHING_ALGORITHM->value, $expectedDataString) . ';' . ImojeEnvironment::HASHING_ALGORITHM->value;
+        $expectedHash = hash(IngPayEnvironment::HASHING_ALGORITHM->value, $expectedDataString) . ';' . IngPayEnvironment::HASHING_ALGORITHM->value;
 
         $this->assertSame($expectedHash, $this->signatureResolver->createSignature($fields, $serviceKey));
     }

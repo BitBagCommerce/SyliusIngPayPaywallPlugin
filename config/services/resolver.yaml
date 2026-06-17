@@ -1,3 +1,3 @@
 services:
-    bitbag.imoje_plugin.resolver.signature_resolver:
-        class: BitBag\SyliusImojePlugin\Resolver\SignatureResolver
+    bitbag.ing_pay_plugin.resolver.signature_resolver:
+        class: BitBag\SyliusIngPayPlugin\Resolver\SignatureResolver

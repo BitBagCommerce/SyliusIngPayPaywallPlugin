@@ -1,8 +1,8 @@
 services:
-    bitbag.imoje_plugin.form.type.gateway_configuration.imoje_paywall:
-        class: BitBag\SyliusImojePlugin\Form\Type\ImojeGatewayConfigurationType
+    bitbag.ing_pay_plugin.form.type.gateway_configuration.ing_pay_paywall:
+        class: BitBag\SyliusIngPayPlugin\Form\Type\IngPayGatewayConfigurationType
         tags:
             - name: sylius.gateway_configuration_type
-              type: imoje_paywall
-              label: 'bitbag.imoje_plugin.paywall'
+              type: ing_pay_paywall
+              label: 'bitbag.ing_pay_plugin.paywall'
             - name: form.type
