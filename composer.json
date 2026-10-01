@@ -56,6 +56,14 @@
             "dealerdirect/phpcodesniffer-composer-installer": false,
             "phpstan/extension-installer": true,
             "symfony/flex": true
+        },
+        "policy": {
+            "advisories": {
+                "ignore": {
+                    "api-platform/core": "Pinned to 2.7 by sylius/sylius 1.x, which has no advisory-free release in that range.",
+                    "enshrined/svg-sanitize": "Pinned to 0.16 by sylius/sylius 1.13, which has no advisory-free release in that range."
+                }
+            }
         }
     },
     "extra": {
