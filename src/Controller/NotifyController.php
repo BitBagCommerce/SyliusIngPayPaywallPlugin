@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Controller;
+namespace BitBag\SyliusIngPayPlugin\Controller;
 
-use BitBag\SyliusImojePlugin\Provider\PaymentTokenProviderInterface;
+use BitBag\SyliusIngPayPlugin\Provider\PaymentTokenProviderInterface;
 use Payum\Core\Payum;
 use Payum\Core\Request\Notify;
 use Sylius\Bundle\PayumBundle\Model\PaymentSecurityTokenInterface;
@@ -27,7 +27,7 @@ final class NotifyController
     ) {
     }
 
-    public function verifyImojeNotification(Request $request): Response
+    public function verifyIngPayNotification(Request $request): Response
     {
         if ('' === $request->getContent()) {
             return new Response('', Response::HTTP_NO_CONTENT);

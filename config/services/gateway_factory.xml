@@ -4,9 +4,9 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="bitbag.imoje_plugin.gateway_factory" class="Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder">
-            <argument>BitBag\SyliusImojePlugin\ImojeGatewayFactory</argument>
-            <tag name="payum.gateway_factory_builder" factory="imoje"/>
+        <service id="bitbag.ing_pay_plugin.gateway_factory" class="Payum\Core\Bridge\Symfony\Builder\GatewayFactoryBuilder">
+            <argument>BitBag\SyliusIngPayPlugin\IngPayGatewayFactory</argument>
+            <tag name="payum.gateway_factory_builder" factory="ing_pay_paywall"/>
         </service>
     </services>
 </container>

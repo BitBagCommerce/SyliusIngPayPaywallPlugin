@@ -8,11 +8,11 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Action;
+namespace BitBag\SyliusIngPayPlugin\Action;
 
-use BitBag\SyliusImojePlugin\Api\ImojeApi;
-use BitBag\SyliusImojePlugin\Api\ImojeApiInterface;
-use BitBag\SyliusImojePlugin\Resolver\SignatureResolverInterface;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApi;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApiInterface;
+use BitBag\SyliusIngPayPlugin\Resolver\SignatureResolverInterface;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\ApiAwareInterface;
 use Payum\Core\ApiAwareTrait;
@@ -30,7 +30,7 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface
 
     public function __construct(private SignatureResolverInterface $signatureResolver)
     {
-        $this->apiClass = ImojeApi::class;
+        $this->apiClass = IngPayApi::class;
     }
 
     public function execute($request): void
@@ -50,7 +50,7 @@ final class CaptureAction implements ActionInterface, ApiAwareInterface
         $orderData = $this->prepareOrderData($order, $token);
 
         $model['tokenHash'] = $token->getHash();
-        $model['statusImoje'] = ImojeApiInterface::NEW_STATUS;
+        $model['statusIngPay'] = IngPayApiInterface::NEW_STATUS;
         $model['paymentId'] = $payment->getId();
         $request->setModel($model);
 

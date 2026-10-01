@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace spec\BitBag\SyliusImojePlugin\Resolver;
+namespace spec\BitBag\SyliusIngPayPlugin\Resolver;
 
-use BitBag\SyliusImojePlugin\Api\ImojeApiInterface;
-use BitBag\SyliusImojePlugin\Resolver\SignatureResolver;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApiInterface;
+use BitBag\SyliusIngPayPlugin\Resolver\SignatureResolver;
 use PhpSpec\ObjectBehavior;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,7 +24,7 @@ final class SignatureResolverSpec extends ObjectBehavior
         ];
         $serviceKey = 'adasvcx3412';
         $expectedDataString = 'field1=value1&field2=value2';
-        $expectedHash = hash(ImojeApiInterface::HASHING_ALGORITHM, $expectedDataString . $serviceKey) . ';' . ImojeApiInterface::HASHING_ALGORITHM;
+        $expectedHash = hash(IngPayApiInterface::HASHING_ALGORITHM, $expectedDataString . $serviceKey) . ';' . IngPayApiInterface::HASHING_ALGORITHM;
 
         $this->createSignature($fields, $serviceKey)->shouldReturn($expectedHash);
     }
@@ -33,7 +33,7 @@ final class SignatureResolverSpec extends ObjectBehavior
     {
         $fields = [];
         $serviceKey = 'adasvcx3412';
-        $expectedHash = hash(ImojeApiInterface::HASHING_ALGORITHM, $serviceKey) . ';' . ImojeApiInterface::HASHING_ALGORITHM;
+        $expectedHash = hash(IngPayApiInterface::HASHING_ALGORITHM, $serviceKey) . ';' . IngPayApiInterface::HASHING_ALGORITHM;
 
         $this->createSignature($fields, $serviceKey)->shouldReturn($expectedHash);
     }
@@ -46,7 +46,7 @@ final class SignatureResolverSpec extends ObjectBehavior
         ];
         $serviceKey = '';
         $expectedDataString = 'field1=value1&field2=value2';
-        $expectedHash = hash(ImojeApiInterface::HASHING_ALGORITHM, $expectedDataString) . ';' . ImojeApiInterface::HASHING_ALGORITHM;
+        $expectedHash = hash(IngPayApiInterface::HASHING_ALGORITHM, $expectedDataString) . ';' . IngPayApiInterface::HASHING_ALGORITHM;
 
         $this->createSignature($fields, $serviceKey)->shouldReturn($expectedHash);
     }

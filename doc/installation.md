@@ -13,16 +13,17 @@ ADDITIONAL
 ## Requirements:
 We work on stable, supported and up-to-date versions of packages. We recommend you to do the same.
 
-| Package       | Version             |
-|---------------|---------------------|
-| PHP           | \>=8.1              |
-| sylius/sylius | \>=1.12.13 - 1.13.x |
-| MySQL         | \>= 5.7             |
-| NodeJS        | \>= 14.x            |
+| Package       | Version          |
+|---------------|------------------|
+| PHP           | \>=8.1           |
+| sylius/sylius | 1.13.x - 1.14.x  |
+| Symfony       | 5.4 \|\| 6.4     |
+| MySQL         | \>= 5.7          |
+| NodeJS        | \>= 18.x         |
 
 ## Composer:
 ```bash
-composer require bitbag/imoje-paywall-plugin --with-all-dependencies
+composer require bitbag/ing-pay-paywall-plugin --with-all-dependencies
 ```
 
 ## Basic configuration:
@@ -33,7 +34,7 @@ Add plugin dependencies to your `config/bundles.php` file:
 
 return [
     ...
-    BitBag\SyliusImojePlugin\BitBagSyliusImojePlugin::class => ['all' => true],
+    BitBag\SyliusIngPayPlugin\BitBagSyliusIngPayPlugin::class => ['all' => true],
 ];
 ```
 
@@ -41,8 +42,8 @@ Add routing to your `config/routes.yaml` file:
 ```yaml
 # config/routes.yaml
 
-bitbag_sylius_imoje_plugin:
-    resource: "@BitBagSyliusImojePlugin/config/routing.yml"
+bitbag_sylius_ing_pay_plugin:
+    resource: "@BitBagSyliusIngPayPlugin/config/routing.yml"
 ```
 
 ## Known issues

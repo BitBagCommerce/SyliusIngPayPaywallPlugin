@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Api;
+namespace BitBag\SyliusIngPayPlugin\Api;
 
-interface ImojeApiInterface
+interface IngPayApiInterface
 {
     public const SANDBOX_ENVIRONMENT = 'sandbox';
 

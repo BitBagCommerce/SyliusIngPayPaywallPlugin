@@ -8,27 +8,27 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin;
+namespace BitBag\SyliusIngPayPlugin;
 
-use BitBag\SyliusImojePlugin\Api\ImojeApi;
-use BitBag\SyliusImojePlugin\Api\ImojeApiInterface;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApi;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApiInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\GatewayFactory;
 
-final class ImojeGatewayFactory extends GatewayFactory
+final class IngPayGatewayFactory extends GatewayFactory
 {
     protected function populateConfig(ArrayObject $config): void
     {
         $config->defaults(
             [
-                'payum.factory_name' => 'imoje',
-                'payum.factory_title' => 'Imoje',
+                'payum.factory_name' => 'ing_pay_paywall',
+                'payum.factory_title' => 'ING Pay',
             ],
         );
 
         if (false === (bool) $config['payum.api']) {
             $config['payum.default_options'] = [
-                'environment' => ImojeApiInterface::SANDBOX_ENVIRONMENT,
+                'environment' => IngPayApiInterface::SANDBOX_ENVIRONMENT,
                 'merchant_id' => '',
                 'service_id' => '',
                 'service_key' => '',
@@ -41,7 +41,7 @@ final class ImojeGatewayFactory extends GatewayFactory
             $config['payum.api'] = function (ArrayObject $config) {
                 $config->validateNotEmpty($config['payum.required_options']);
 
-                return new ImojeApi(
+                return new IngPayApi(
                     $config['environment'],
                     $config['merchant_id'],
                     $config['service_id'],

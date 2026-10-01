@@ -6,26 +6,26 @@
     <services>
         <defaults public="true"/>
 
-        <service id="bitbag.imoje_plugin.action.capture" class="BitBag\SyliusImojePlugin\Action\CaptureAction">
-            <argument type="service" id="bitbag.imoje_plugin.resolver.signature_resolver"/>
-            <tag name="payum.action" factory="imoje" alias="payum.action.capture"/>
+        <service id="bitbag.ing_pay_plugin.action.capture" class="BitBag\SyliusIngPayPlugin\Action\CaptureAction">
+            <argument type="service" id="bitbag.ing_pay_plugin.resolver.signature_resolver"/>
+            <tag name="payum.action" factory="ing_pay_paywall" alias="payum.action.capture"/>
         </service>
 
-        <service id="bitbag.imoje_plugin.action.status" class="BitBag\SyliusImojePlugin\Action\StatusAction">
-            <tag name="payum.action" factory="imoje" alias="payum.action.status"/>
+        <service id="bitbag.ing_pay_plugin.action.status" class="BitBag\SyliusIngPayPlugin\Action\StatusAction">
+            <tag name="payum.action" factory="ing_pay_paywall" alias="payum.action.status"/>
         </service>
 
-        <service id="bitbag.imoje_plugin.action.notify" class="BitBag\SyliusImojePlugin\Action\NotifyAction">
+        <service id="bitbag.ing_pay_plugin.action.notify" class="BitBag\SyliusIngPayPlugin\Action\NotifyAction">
             <argument type="service" id="request_stack"/>
-            <argument type="service" id="bitbag.imoje_plugin.resolver.signature_resolver"/>
+            <argument type="service" id="bitbag.ing_pay_plugin.resolver.signature_resolver"/>
             <argument type="service" id="sylius.factory.payment"/>
             <argument type="service" id="doctrine.orm.entity_manager"/>
             <argument type="service" id="sylius.repository.order"/>
-            <tag name="payum.action" factory="imoje" alias="payum.action.notify"/>
+            <tag name="payum.action" factory="ing_pay_paywall" alias="payum.action.notify"/>
         </service>
 
-        <service id="bitbag.imoje_plugin.action.convert_payment" class="BitBag\SyliusImojePlugin\Action\ConvertPaymentAction">
-            <tag name="payum.action" factory="imoje" alias="payum.action.convert_payment"/>
+        <service id="bitbag.ing_pay_plugin.action.convert_payment" class="BitBag\SyliusIngPayPlugin\Action\ConvertPaymentAction">
+            <tag name="payum.action" factory="ing_pay_paywall" alias="payum.action.convert_payment"/>
         </service>
     </services>
 </container>

@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Provider;
+namespace BitBag\SyliusIngPayPlugin\Provider;
 
 use Sylius\Bundle\PayumBundle\Model\PaymentSecurityTokenInterface;
 use Symfony\Component\HttpFoundation\Request;

@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace spec\BitBag\SyliusImojePlugin\Provider;
+namespace spec\BitBag\SyliusIngPayPlugin\Provider;
 
-use BitBag\SyliusImojePlugin\Provider\PaymentTokenProvider;
+use BitBag\SyliusIngPayPlugin\Provider\PaymentTokenProvider;
 use Doctrine\Common\Collections\ArrayCollection;
 use PhpSpec\ObjectBehavior;
 use Sylius\Bundle\PayumBundle\Model\PaymentSecurityTokenInterface;
