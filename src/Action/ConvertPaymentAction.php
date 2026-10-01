@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Action;
+namespace BitBag\SyliusIngPayPlugin\Action;
 
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;

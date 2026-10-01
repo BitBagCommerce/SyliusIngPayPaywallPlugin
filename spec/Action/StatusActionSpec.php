@@ -8,11 +8,11 @@
 
 declare(strict_types=1);
 
-namespace spec\BitBag\SyliusImojePlugin\Action;
+namespace spec\BitBag\SyliusIngPayPlugin\Action;
 
 use ArrayAccess;
-use BitBag\SyliusImojePlugin\Action\StatusAction;
-use BitBag\SyliusImojePlugin\Api\ImojeApiInterface;
+use BitBag\SyliusIngPayPlugin\Action\StatusAction;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApiInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Exception\RequestNotSupportedException;
@@ -35,7 +35,7 @@ final class StatusActionSpec extends ObjectBehavior
     public function it_should_return_new_status(
         GetStatusInterface $request,
     ): void {
-        $data = ['statusImoje' => ImojeApiInterface::NEW_STATUS, 'paymentId' => 1];
+        $data = ['statusIngPay' => IngPayApiInterface::NEW_STATUS, 'paymentId' => 1];
 
         $request->getModel()->willReturn(new ArrayCollection($data));
 
@@ -47,7 +47,7 @@ final class StatusActionSpec extends ObjectBehavior
     public function it_should_return_pending_status(
         GetStatusInterface $request,
     ): void {
-        $data = ['statusImoje' => ImojeApiInterface::PENDING_STATUS, 'paymentId' => 1];
+        $data = ['statusIngPay' => IngPayApiInterface::PENDING_STATUS, 'paymentId' => 1];
 
         $request->getModel()->willReturn(new ArrayCollection($data));
         $request->markPending()->shouldBeCalled();
@@ -58,7 +58,7 @@ final class StatusActionSpec extends ObjectBehavior
     public function it_should_return_cancelled_status(
         GetStatusInterface $request,
     ): void {
-        $data = ['statusImoje' => ImojeApiInterface::CANCELLED_STATUS, 'paymentId' => 1, 'tokenHash' => 'dfgdsgxcvxcerf234'];
+        $data = ['statusIngPay' => IngPayApiInterface::CANCELLED_STATUS, 'paymentId' => 1, 'tokenHash' => 'dfgdsgxcvxcerf234'];
 
         $request->getModel()->willReturn(new ArrayCollection($data));
         $request->markCanceled()->shouldBeCalled();
@@ -72,7 +72,7 @@ final class StatusActionSpec extends ObjectBehavior
     public function it_should_return_rejected_status(
         GetStatusInterface $request,
     ): void {
-        $data = ['statusImoje' => ImojeApiInterface::REJECTED_STATUS, 'paymentId' => 1, 'tokenHash' => 'dfgdsgxcvxcerf234'];
+        $data = ['statusIngPay' => IngPayApiInterface::REJECTED_STATUS, 'paymentId' => 1, 'tokenHash' => 'dfgdsgxcvxcerf234'];
         $request->getModel()->willReturn(new ArrayCollection($data));
         $request->markFailed()->shouldBeCalled();
         $data['tokenHash'] = '';
@@ -85,7 +85,7 @@ final class StatusActionSpec extends ObjectBehavior
     public function it_should_return_settled_status(
         GetStatusInterface $request,
     ): void {
-        $data = ['statusImoje' => ImojeApiInterface::SETTLED_STATUS, 'paymentId' => 1, 'tokenHash' => 'dfgdsgxcvxcerf234'];
+        $data = ['statusIngPay' => IngPayApiInterface::SETTLED_STATUS, 'paymentId' => 1, 'tokenHash' => 'dfgdsgxcvxcerf234'];
         $request->getModel()->willReturn(new ArrayCollection($data));
 
         $request->markCaptured()->shouldBeCalled();
@@ -96,7 +96,7 @@ final class StatusActionSpec extends ObjectBehavior
     public function it_should_return_unknown_status(
         GetStatusInterface $request,
     ): void {
-        $data = ['statusImoje' => 'test', 'paymentId' => 1, 'tokenHash' => 'dfgdsgxcvxcerf234'];
+        $data = ['statusIngPay' => 'test', 'paymentId' => 1, 'tokenHash' => 'dfgdsgxcvxcerf234'];
         $request->getModel()->willReturn(new ArrayCollection($data));
 
         $request->markUnknown()->shouldBeCalled();

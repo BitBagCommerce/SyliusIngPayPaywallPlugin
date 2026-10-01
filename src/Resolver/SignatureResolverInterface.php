@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Resolver;
+namespace BitBag\SyliusIngPayPlugin\Resolver;
 
 use Symfony\Component\HttpFoundation\Request;
 

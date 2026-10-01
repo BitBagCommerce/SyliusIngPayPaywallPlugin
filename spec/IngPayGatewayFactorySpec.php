@@ -8,20 +8,20 @@
 
 declare(strict_types=1);
 
-namespace spec\BitBag\SyliusImojePlugin;
+namespace spec\BitBag\SyliusIngPayPlugin;
 
-use BitBag\SyliusImojePlugin\ImojeGatewayFactory;
+use BitBag\SyliusIngPayPlugin\IngPayGatewayFactory;
 use Payum\Core\GatewayFactoryInterface;
 use PhpSpec\ObjectBehavior;
 
-final class ImojeGatewayFactorySpec extends ObjectBehavior
+final class IngPayGatewayFactorySpec extends ObjectBehavior
 {
     public function it_is_initializable(): void
     {
-        $this->shouldHaveType(ImojeGatewayFactory::class);
+        $this->shouldHaveType(IngPayGatewayFactory::class);
     }
 
-    function it_implements_imoje_gateway_factory_interface(): void
+    function it_implements_ing_pay_gateway_factory_interface(): void
     {
         $this->shouldHaveType(GatewayFactoryInterface::class);
     }

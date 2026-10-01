@@ -6,9 +6,9 @@
     <services>
         <defaults public="true"/>
 
-        <service id="bitbag.sylius_imoje_plugin.controller.notify_controller" class="BitBag\SyliusImojePlugin\Controller\NotifyController">
+        <service id="bitbag.sylius_ing_pay_plugin.controller.notify_controller" class="BitBag\SyliusIngPayPlugin\Controller\NotifyController">
             <argument type="service" id="payum" />
-            <argument type="service" id="bitbag.imoje_plugin.provider.payment_token_provider" />
+            <argument type="service" id="bitbag.ing_pay_plugin.provider.payment_token_provider" />
         </service>
     </services>
 </container>

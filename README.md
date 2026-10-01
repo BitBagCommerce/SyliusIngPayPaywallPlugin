@@ -57,22 +57,23 @@ We have a 70-person team of experts: business analysts and consultants, eCommerc
 
 # Installation
 ----
-The installation process for the Imoje Paywall Plugin can be found [here](doc/installation.md).
+The installation process for the ING Pay Paywall Plugin can be found [here](doc/installation.md).
 
 ## Requirements
 ---
 We work on stable, supported and up-to-date versions of packages. We recommend you to do the same.
 
-| Package       | Version             |
-|---------------|---------------------|
-| PHP           | \>=8.1              |
-| sylius/sylius | \>=1.12.13 - 1.13.x |
-| MySQL         | \>= 5.7             |
-| NodeJS        | \>= 14.x            |
+| Package       | Version          |
+|---------------|------------------|
+| PHP           | \>=8.1           |
+| sylius/sylius | 1.13.x - 1.14.x  |
+| Symfony       | 5.4 \|\| 6.4     |
+| MySQL         | \>= 5.7          |
+| NodeJS        | \>= 18.x         |
 
 ## Usage
 
-This plugin allows you to use the payment solution delivered by Imoje.
+This plugin allows you to use the payment solution delivered by ING Pay.
 
 
 ## Configuration
@@ -87,13 +88,13 @@ And now, you can configure your payment method in the admin panel:
 ![Screenshot showing payment method config in admin](doc/payment_method_config.png)
 
 
-To configure the imoje gateway, log in to ING the admin panel.
+To configure the ING Pay gateway, log in to ING the admin panel.
 
 From "Settings" -> "Data for integration" you can acquire all the needed keys:
 
 merchantId, serviceId, shopKey
 
-Also, here in the integration data page you need to configure the path to your webhook, just type in your shop URL followed by /payment/imoje/notify
+Also, here in the integration data page you need to configure the path to your webhook, just type in your shop URL followed by /payment/ing_pay/notify
 
 You also need an authorization token, so you need to go to: "Settings" -> "API Keys". And click on your "API key". This will be your authorization token.
 

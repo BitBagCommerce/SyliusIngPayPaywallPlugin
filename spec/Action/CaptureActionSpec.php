@@ -8,11 +8,11 @@
 
 declare(strict_types=1);
 
-namespace spec\BitBag\SyliusImojePlugin\Action;
+namespace spec\BitBag\SyliusIngPayPlugin\Action;
 
-use BitBag\SyliusImojePlugin\Api\ImojeApi;
-use BitBag\SyliusImojePlugin\Api\ImojeApiInterface;
-use BitBag\SyliusImojePlugin\Resolver\SignatureResolverInterface;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApi;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApiInterface;
+use BitBag\SyliusIngPayPlugin\Resolver\SignatureResolverInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Reply\HttpPostRedirect;
 use Payum\Core\Request\Capture;
@@ -62,10 +62,10 @@ final class CaptureActionSpec extends ObjectBehavior
         PaymentSecurityTokenInterface $token,
         AddressInterface $address,
         CustomerInterface $customer,
-        ImojeApi $apiClass,
+        IngPayApi $apiClass,
         SignatureResolverInterface $signatureResolver,
     ): void {
-        $data = ['statusImoje' => ImojeApiInterface::NEW_STATUS, 'paymentId' => 123, 'tokenHash' => '1234sdcsdfxz'];
+        $data = ['statusIngPay' => IngPayApiInterface::NEW_STATUS, 'paymentId' => 123, 'tokenHash' => '1234sdcsdfxz'];
         $request->getModel()->willReturn(new ArrayObject($data));
 
         $request->getToken()->willReturn('1234sdcsdfxz');

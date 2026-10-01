@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Api;
+namespace BitBag\SyliusIngPayPlugin\Api;
 
-class ImojeApi implements ImojeApiInterface
+class IngPayApi implements IngPayApiInterface
 {
     public function __construct(
         private string $environment,

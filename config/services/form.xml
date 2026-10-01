@@ -6,8 +6,8 @@
     <services>
         <defaults public="true"/>
 
-        <service id="bitbag.imoje_plugin.form.type.gateway_configuration" class="BitBag\SyliusImojePlugin\Form\Type\ImojeGatewayConfigurationType">
-            <tag name="sylius.gateway_configuration_type" type="imoje" label="bitbag.imoje_plugin.gateway_label"/>
+        <service id="bitbag.ing_pay_plugin.form.type.gateway_configuration" class="BitBag\SyliusIngPayPlugin\Form\Type\IngPayGatewayConfigurationType">
+            <tag name="sylius.gateway_configuration_type" type="ing_pay_paywall" label="bitbag.ing_pay_plugin.paywall"/>
             <tag name="form.type"/>
         </service>
     </services>

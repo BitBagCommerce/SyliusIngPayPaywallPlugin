@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace spec\BitBag\SyliusImojePlugin\Action;
+namespace spec\BitBag\SyliusIngPayPlugin\Action;
 
-use BitBag\SyliusImojePlugin\Action\ConvertPaymentAction;
+use BitBag\SyliusIngPayPlugin\Action\ConvertPaymentAction;
 use Payum\Core\Action\ActionInterface;
 use Payum\Core\Model\PaymentInterface;
 use Payum\Core\Request\Convert;
@@ -24,7 +24,7 @@ final class ConvertPaymentActionSpec extends ObjectBehavior
         $this->shouldHaveType(ConvertPaymentAction::class);
     }
 
-    function it_implements_imoje_gateway_factory_interface(): void
+    function it_implements_ing_pay_gateway_factory_interface(): void
     {
         $this->shouldHaveType(ActionInterface::class);
     }

@@ -8,9 +8,9 @@
 
 declare(strict_types=1);
 
-namespace BitBag\SyliusImojePlugin\Resolver;
+namespace BitBag\SyliusIngPayPlugin\Resolver;
 
-use BitBag\SyliusImojePlugin\Api\ImojeApiInterface;
+use BitBag\SyliusIngPayPlugin\Api\IngPayApiInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Webmozart\Assert\Assert;
 
@@ -31,7 +31,7 @@ final class SignatureResolver implements SignatureResolverInterface
 
         $dataString = implode('&', $data);
 
-        return hash(ImojeApiInterface::HASHING_ALGORITHM, $dataString . $serviceKey) . ';' . ImojeApiInterface::HASHING_ALGORITHM;
+        return hash(IngPayApiInterface::HASHING_ALGORITHM, $dataString . $serviceKey) . ';' . IngPayApiInterface::HASHING_ALGORITHM;
     }
 
     public function verifySignature(Request $request, string $serviceKey): bool
