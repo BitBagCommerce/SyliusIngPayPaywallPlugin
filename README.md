@@ -63,12 +63,13 @@ The installation process for the Imoje Paywall Plugin can be found [here](doc/in
 ---
 We work on stable, supported and up-to-date versions of packages. We recommend you to do the same.
 
-| Package       | Version             |
-|---------------|---------------------|
-| PHP           | \>=8.1              |
-| sylius/sylius | \>=1.12.13 - 1.13.x |
-| MySQL         | \>= 5.7             |
-| NodeJS        | \>= 14.x            |
+| Package       | Version          |
+|---------------|------------------|
+| PHP           | \>=8.1           |
+| sylius/sylius | 1.13.x - 1.14.x  |
+| Symfony       | 5.4 \|\| 6.4     |
+| MySQL         | \>= 5.7          |
+| NodeJS        | \>= 20.x         |
 
 ## Usage
 

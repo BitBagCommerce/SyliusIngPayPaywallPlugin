@@ -19,11 +19,13 @@ use Payum\Core\ApiAwareTrait;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Exception\RequestNotSupportedException;
 use Payum\Core\Request\Notify;
+use Sylius\Component\Core\Model\OrderInterface;
 use Sylius\Component\Core\Model\PaymentInterface;
 use Sylius\Component\Core\Repository\OrderRepositoryInterface;
 use Sylius\Component\Payment\Factory\PaymentFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
+use Webmozart\Assert\Assert;
 
 final class NotifyAction implements ActionInterface, ApiAwareInterface
 {
@@ -42,7 +44,6 @@ final class NotifyAction implements ActionInterface, ApiAwareInterface
         $this->apiClass = ImojeApi::class;
     }
 
-    /** @param Notify $request */
     public function execute($request): void
     {
         RequestNotSupportedException::assertSupports($this, $request);
@@ -67,17 +68,30 @@ final class NotifyAction implements ActionInterface, ApiAwareInterface
         $model['statusImoje'] = $transactionData['status'];
 
         if ($notificationData['payment']['status'] === 'error') {
+            $currencyCode = $payment->getCurrencyCode();
+            Assert::string($currencyCode);
+
+            $amount = $payment->getAmount();
+            Assert::integer($amount);
+
             /** @var PaymentInterface $newPayment */
             $newPayment = $this->paymentFactory->createNew();
             $newPayment->setState('new');
-            $newPayment->setCurrencyCode($payment->getCurrencyCode());
-            $newPayment->setAmount($payment->getAmount());
+            $newPayment->setCurrencyCode($currencyCode);
+            $newPayment->setAmount($amount);
             $this->entityManager->persist($newPayment);
 
             $order = $payment->getOrder();
-            $reloadedOrder = $this->orderRepository->findOneBy(['id' => $order->getId()]);
+            Assert::notNull($order);
 
-            $reloadedOrder->getLastPayment()->setState('failed');
+            /** @var OrderInterface|null $reloadedOrder */
+            $reloadedOrder = $this->orderRepository->findOneBy(['id' => $order->getId()]);
+            Assert::notNull($reloadedOrder);
+
+            $lastPayment = $reloadedOrder->getLastPayment();
+            Assert::notNull($lastPayment);
+            $lastPayment->setState('failed');
+
             $reloadedOrder->addPayment($newPayment);
 
             $this->entityManager->flush();
