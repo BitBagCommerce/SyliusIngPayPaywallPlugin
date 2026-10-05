@@ -12,9 +12,13 @@ namespace spec\BitBag\SyliusImojePlugin\Action;
 
 use BitBag\SyliusImojePlugin\Api\ImojeApi;
 use BitBag\SyliusImojePlugin\Resolver\SignatureResolverInterface;
+use Doctrine\ORM\EntityManagerInterface;
 use Payum\Core\Bridge\Spl\ArrayObject;
 use Payum\Core\Request\Notify;
 use PhpSpec\ObjectBehavior;
+use Sylius\Component\Core\Model\PaymentInterface;
+use Sylius\Component\Core\Repository\OrderRepositoryInterface;
+use Sylius\Component\Payment\Factory\PaymentFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -23,10 +27,16 @@ final class NotifyActionSpec extends ObjectBehavior
     public function let(
         RequestStack $requestStack,
         SignatureResolverInterface $signatureResolver,
+        PaymentFactoryInterface $paymentFactory,
+        EntityManagerInterface $entityManager,
+        OrderRepositoryInterface $orderRepository,
     ): void {
         $this->beConstructedWith(
             $requestStack,
             $signatureResolver,
+            $paymentFactory,
+            $entityManager,
+            $orderRepository,
         );
     }
 
@@ -98,12 +108,17 @@ final class NotifyActionSpec extends ObjectBehavior
         ImojeApi $api,
         Request $httpRequest,
         RequestStack $requestStack,
+        PaymentInterface $payment,
     ): void {
         $requestStack->getCurrentRequest()->willReturn($httpRequest);
+        $request->getFirstModel()->willReturn($payment);
         $api->getServiceKey()->willReturn('1234sdcsdfxz');
         $signatureResolver->verifySignature($httpRequest, '1234sdcsdfxz')
             ->willReturn(true);
-        $notificationData = ['transaction' => ['status' => 'new', 'paymentId' => 1, 'tokenHash' => '1234sdcsdfxz']];
+        $notificationData = [
+            'payment' => ['status' => 'new'],
+            'transaction' => ['status' => 'new', 'paymentId' => 1, 'tokenHash' => '1234sdcsdfxz'],
+        ];
         $jsonNotificationData = json_encode($notificationData);
         $httpRequest->getContent()->willReturn($jsonNotificationData);
         $request->getModel()->willReturn(new ArrayObject([

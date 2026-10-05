@@ -1,3 +1,19 @@
+# UPGRADE FROM `v1.0.x` TO `v1.1.0`
+
+Sylius 1.14 is now supported. Sylius 1.12 and PHP 8.0 support are dropped.
+
+| | Before | After |
+|---|---|---|
+| `php` | `^8.0` | `^8.1` |
+| `sylius/sylius` | `~1.12.0 \|\| ~1.13.0` | `~1.13.0 \|\| ~1.14.0` |
+
+If you are still on Sylius 1.12, upgrade to 1.13 first using `v1.0.3` and then take this release.
+
+There are no changes to the plugin's namespaces, service ids, routes, gateway factory name or
+configuration fields, so no application or database change is required.
+
+---
+
 # UPGRADE FROM `v1.3.X` TO `v1.4.0`
 
 First step is upgrading Sylius with composer
