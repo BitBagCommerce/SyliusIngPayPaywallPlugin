@@ -69,7 +69,7 @@ We work on stable, supported and up-to-date versions of packages. We recommend y
 | sylius/sylius | 1.13.x - 1.14.x  |
 | Symfony       | 5.4 \|\| 6.4     |
 | MySQL         | \>= 5.7          |
-| NodeJS        | \>= 18.x         |
+| NodeJS        | \>= 20.x         |
 
 ## Usage
 
